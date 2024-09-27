@@ -1,3 +1,7 @@
+# API Estimation de Bien
+
+L'API Estimation de Bien permet d'estimer le prix d'un appartement ou d'une maison individuelle en se basant sur les caratéristiques et la localisation du bien.
+
 # Authentification
 
 Lorsque vous souscrivez à l'API **Estimation de Bien**, un token vous sera fourni. Ajoutez le au Header de votre requête pour vous authentifier.
