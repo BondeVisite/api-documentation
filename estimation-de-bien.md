@@ -12,7 +12,7 @@ curl -X POST 'https://dimex.datatest.ch/{version}/{endpoint}' \
 
 L'API **Estimation de Bien** comporte trois Endpoints: un pour les modèle disponibles, le deuxième pour estimer les maisons individuelles et le dernier pour estimer les appartements. 
 
-**La seule version d'API dispinible à ce jour est `v0`**.
+**La seule version d'API disponible à ce jour est `v0`**.
 
 ## Modèles disponibles
 
