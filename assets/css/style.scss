@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+body {
+    font-family: Suisse,Helvetica,Arial,sans-serif;
+}
+
 .page-header {
     padding: 5rem 6rem;
     background-image: none;
