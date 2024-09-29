@@ -250,3 +250,76 @@ curl -X POST 'https://dimex.datatest.ch/{version}/hed-fr-con' \
 |    401 | Unauthorized         |
 |    403 | Forbidden            |
 |    404 | Not Found            |
+
+# Règles de facturation
+Sauf cas spécial, nous entendons par "facturation par requête" une **facturation par estimation**. Une requête avec deux biens à estimer est comptabilisée comme deux estimations.
+### Exemple
+#### Requête 1: un seul bien
+```bash
+curl -X 'POST' \
+  'https://dimex.datatest.ch/v0/hed-fr-sfh' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Basic <token>' \
+  -d '{
+  "model": "2024Q2",
+  "requests": [
+    {
+      "valuationDate": "2024-09-29",
+      "address": "47 Rue Carnot, 92150 Suresnes",
+      "constructionYear": 1990,
+      "area": {
+        "usableArea": 80
+      },
+      "numberOfRooms": 4,
+      "conditionManualValue": 3.5,
+      "houseType": "CHALET",
+      "landPlotArea": 200,
+      "numberOfFloors": 3,
+      "energyGrade": "A"
+    }
+  ]
+}'
+```
+#### Requête 2: deux biens
+```bash
+curl -X 'POST' \
+  'https://dimex.datatest.ch/v0/hed-fr-sfh' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Basic <token>' \
+  -d '{
+  "model": "2024Q2",
+  "requests": [
+    {
+      "valuationDate": "2024-09-29",
+      "address": "47 Rue Carnot, 92150 Suresnes",
+      "constructionYear": 1990,
+      "area": {
+        "usableArea": 80
+      },
+      "numberOfRooms": 4,
+      "conditionManualValue": 3.5,
+      "houseType": "CHALET",
+      "landPlotArea": 200,
+      "numberOfFloors": 3,
+      "energyGrade": "A"
+    },
+    {
+      "valuationDate": "2024-09-29",
+      "address": "29 Rue des Carnets, 92140 Clamart",
+      "constructionYear": 2003,
+      "area": {
+        "usableArea": 120
+      },
+      "numberOfRooms": 5,
+      "conditionManualValue": 3.5,
+      "houseType": "CHALET",
+      "landPlotArea": 200,
+      "numberOfFloors": 3,
+      "energyGrade": "A"
+    }
+  ]
+}'
+```
+Dans cette exemple, la requête 1 sera comptabilisée comme une seule estimation alors que la requête 2 sera, quant à elle, comptabilisée comme deux estimations. 
+
+Si le prix de la requête est par exemple **0.2€**, le requête 1 sera facturée à **0.2€** et la requête 2 sera facturée à **0.4€**.
