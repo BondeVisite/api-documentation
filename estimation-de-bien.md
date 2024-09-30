@@ -322,4 +322,4 @@ curl -X 'POST' \
 ```
 Dans cette exemple, la requête 1 sera comptabilisée comme une seule estimation alors que la requête 2 sera, quant à elle, comptabilisée comme deux estimations. 
 
-Si le prix de la requête est de **0.2€**, la requête 1 sera facturée à **0.2€** et la requête 2 sera facturée à **0.4€**.
+Si le prix de la requête est de **0.2€** par exemple, la requête 1 sera facturée à **0.2€** et la requête 2 sera facturée à **0.4€**.
