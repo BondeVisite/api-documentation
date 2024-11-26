@@ -8,3 +8,4 @@ relative_links:
   collections: true
 include:
   - estimation-de-bien.md
+  - simulation-de-loyer.md
