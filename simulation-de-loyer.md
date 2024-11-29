@@ -1,6 +1,6 @@
 # API Simulation de Loyer
 
-L'API Simulation de Loyer permet d'estimer la valeur locative d'un appartement en se basant sur les caractéristiques et la localisation du bien.
+L'API Simulation de Loyer permet d'estimer le loyer du marché d'un appartement en se basant sur les caractéristiques et la localisation du bien.
 
 # Authentification
 
@@ -95,7 +95,7 @@ curl -X 'POST' 'https://dimex.datatest.ch/{version}/hed-fr-rent' \
 | requests[i].hasTerrace                                                   | Le bien  est avec terrasse.                                                        | `boolean` |                                        | *true*                              |
 | requests[i].hasGarden                                                    | Le bien  est avec jardin.                                                          | `boolean` |                                        | *true*                              |
 | requests[i].hasFireplace                                                 | Le bien  est avec cheminée.                                                        | `boolean` |                                        | *false*                             |
-| requests[i].hasAirConditioning                                           | SurfaLe bien  est climatisé.                                                       | `boolean` |                                        | *false*                             |
+| requests[i].hasAirConditioning                                           | Le bien  est climatisé.                                                       | `boolean` |                                        | *false*                             |
 
 ### Exemple de Réponse
 
@@ -161,8 +161,8 @@ curl -X 'POST' 'https://dimex.datatest.ch/{version}/hed-fr-rent' \
 | results[i].marketShallIncomePerUnitYear  | Estimation du loyer annuel du bien en Euro.                                                                                                                                                                                                                                                  | `number` |                     | *15500*                                  |
 | results[i].marketShallIncomePerUnitMonth | Estimation du loyer mensuel du bien en Euro.                                                                                                                                                                                                                                                 | `number` |                     | *1300*                                   |
 | results[i].marketShallIncomePerArea      | Estimation du loyer annuel par mètre carré du bien en Euro.                                                                                                                                                                                                                                  | `number` |                     | *222*                                    |
-| results[i].statisticalPriceRangeMin      | Estimation minimale du du loyer annuel par mètre carré du bien en Euro.                                                                                                                                                                                                                      | `number` |                     | *195*                                    |
-| results[i].statisticalPriceRangeMax      | Estimation maximale du du loyer annuel par mètre carré du bien en Euro.                                                                                                                                                                                                                      | `number` |                     | *253*                                    |
+| results[i].statisticalPriceRangeMin      | Fourchette inférieure de l’estimation du loyer annuel par mètre carré du bien en Euro.                                                                                                                                                                                                                      | `number` |                     | *195*                                    |
+| results[i].statisticalPriceRangeMax      | Fourchette supérieure de l’estimation du loyer annuel par mètre carré du bien en Euro.                                                                                                                                                                                                                      | `number` |                     | *253*                                    |
 | results[i].statisticalTrafficLight       | Couleur indiquant l'atypicité du bien.  Ici l'atypicité mesure la similarité du bien avec les biens présents sur le marché en se basant sur des caratéristiques comme la superficie, le nombre de pièce, l'étage, …etc. green: bien typique, yellow: bien atypique, red: bien très atypique. | `string` | red, yellow, green  | *green*                                  |
 | results[i].messages                      | Liste des messages d'erreur en cas d'échec de la requête.                                                                                                                                                                                                                                    | `array`  |                     | *Voir l'exemple de réponse avec erreur.* |
 
